@@ -128,6 +128,7 @@ def current_installed_version
     p.stdout.split(delimeter)[1].strip
   rescue Chef::Exceptions::ShellCommandFailed
   rescue Mixlib::ShellOut::ShellCommandFailed
+  rescue RightScale::Exceptions::Exec
   end
 end
 
@@ -162,6 +163,6 @@ def pip_cmd(nr)
   elsif "#{node['python']['install_method']}".eql?("source")
     ::File.join("#{node['python']['prefix_dir']}","/bin/pip")
   else
-    'pip'
+    '/usr/local/bin/pip'
   end
 end

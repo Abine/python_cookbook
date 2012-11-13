@@ -17,7 +17,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+rightscale_marker :start
 
 include_recipe "python::#{node['python']['install_method']}"
 include_recipe "python::pip"
 include_recipe "python::virtualenv"
+
+rightscale_marker :end

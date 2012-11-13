@@ -17,17 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-# COOK-1016 Handle RHEL/CentOS namings of python packages, by installing EPEL repo & package
-# This implementation was determined a stopgap measure until CHEF-2410 is implemented and widespread.
-if node['platform'] == 'centos' || node['platform'] == 'redhat'
-  major_version = node['platform_version'].split('.').first.to_i
-  if major_version == 5
-    include_recipe 'yum::epel'
-  else
-    # Do nothing.
-  end
-end
+rightscale_marker :begin
 
 python_pkgs = if node['platform'] == 'centos' || node['platform'] == 'redhat'
                 major_version = node['platform_version'].split('.').first.to_i
@@ -56,3 +46,5 @@ python_pkgs.each do |pkg|
     action :install
   end
 end
+
+rightscale_marker :end

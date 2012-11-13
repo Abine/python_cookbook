@@ -17,6 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+rightscale_marker :begin
 
 python_bindir = "#{node['python']['prefix_dir']}/bin"
 pip_bindir    = "#{node['python']['pip']['prefix_dir']}/bin"
@@ -39,3 +40,5 @@ bash "install-pip" do
   EOF
   not_if { ::File.exists?("#{pip_bindir}/pip") }
 end
+
+rightscale_marker :end
