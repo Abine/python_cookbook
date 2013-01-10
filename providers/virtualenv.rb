@@ -57,7 +57,7 @@ def virtualenv_cmd()
   if "#{node['python']['install_method']}".eql?("source")
     ::File.join("#{node['python']['prefix_dir']}","/bin/virtualenv")
   else
-    "virtualenv"
+    "/usr/local/bin/virtualenv"
   end
 end
 
