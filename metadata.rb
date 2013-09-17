@@ -6,7 +6,7 @@ version           "1.0.8"
 
 depends           "build-essential"
 
-recipe "python", "Installs python, pip, and virtualenv"
+recipe "python::default", "Installs python, pip, and virtualenv"
 recipe "python::package", "Installs python using packages."
 recipe "python::source", "Installs python from source."
 recipe "python::pip", "Installs pip from source."
@@ -21,4 +21,4 @@ attribute "python/version",
   :description => "The version of Python to install. Make sure this is correct",
   :required => "recommended",
   :default => "2.7.3",
-  :recipes => ["python", "python::package", "python::source"]
+  :recipes => ["python::default", "python::package", "python::source"]

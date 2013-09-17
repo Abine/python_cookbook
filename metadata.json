@@ -33,7 +33,7 @@
       "required": "recommended",
       "default": "2.7.3",
       "recipes": [
-        "python",
+        "python::default",
         "python::package",
         "python::source"
       ],
@@ -47,7 +47,7 @@
   "groupings": {
   },
   "recipes": {
-    "python": "Installs python, pip, and virtualenv",
+    "python::default": "Installs python, pip, and virtualenv",
     "python::package": "Installs python using packages.",
     "python::source": "Installs python from source.",
     "python::pip": "Installs pip from source.",
